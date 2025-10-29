@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+const double PI = 3.1416;
+
+// Fungsi signature: Fungsi yang digunakan untuk menghitung jarak antara dua titik pada bidang koordinat
+double distance(double x1, double y1, double x2, double y2) {
+    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+}
+
+// Fungsi signature: Fungsi untuk menghitung jari-jari lingkaran, yang diperoleh dari jarak antara titik pusat lingkaran dan satu titik pada lingkaran
+double radius(double x1, double y1, double x2, double y2) { // Formal parameter
+    return distance(x1, y1, x2, y2);
+}
+
+// Fungsi signature: Fungsi untuk menghitung keliling lingkaran
+double circumference(double r) { // Actual parameter
+    return 2 * PI * r;
+}
+
+// Fungsi signature: Fungsi untuk menghitung luas
+double area(double r) {
+    return PI * pow(r, 2);
+}
+
+int main() {
+    double x1, y1, x2, y2;
+    cout << "=== Circle Calculator ===" << endl;
+
+    cout << "Enter x-coordinate of center: ";
+    cin >> x1;
+    cout << "Enter y-coordinate of center: ";
+    cin >> y1;
+    cout << "Enter x-coordinate of a point on the circle: ";
+    cin >> x2;
+    cout << "Enter y-coordinate of a point on the circle: ";
+    cin >> y2;
+
+    double r = radius(x1, y1, x2, y2);
+    double d = 2 * r;
+    double c = circumference(r);
+    double a = area(r);
+
+    cout << fixed;
+    cout.precision(4);
+    cout << "\nResults:\n";
+    cout << "Radius: " << r << endl;
+    cout << "Diameter: " << d << endl;
+    cout << "Circumference: " << c << endl;
+    cout << "Area: " << a << endl;
+
+    return 0;
+}
